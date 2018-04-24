@@ -2,45 +2,38 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {createStore} from 'redux'
+import io from 'socket.io-client'
+import {createStore, applyMiddleware} from 'redux'
 import reducer from './reducers'
 import {Provider} from 'react-redux'
+import {setState} from './actions';
+import remoteActionMiddleware from './actions/remote_action_middleware'
 
-const store = createStore(
+
+const socket = io(`${window.location.protocol}//${window.location.hostname}:8090`);
+socket.on('state',state=>{
+    store.dispatch(setState(state))
+});
+
+const createStoreWithMiddleware = applyMiddleware(remoteActionMiddleware(socket))(createStore);
+const store = createStoreWithMiddleware(
     reducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-store.dispatch({
-    type:'SET_STATE',
-    state:{
-        events:[
-            {
-            id:0,
-            name:'eventName',
-            firstName:'Ola',
-            lastName:'nowak',
-            email:'ela@owa.pl',
-            date:'data'
-        },
-            {
-                id:1,
-                name:'eventName',
-                firstName:'Ola',
-                lastName:'nowak',
-                email:'ela@owa.pl',
-                date:'data'
-            }],
-        messages:['msg1', 'msg2'],
-        form:{
-            name:'',
-            firstName:'',
-            lastName:'',
-            email:'',
-            date:''
-        }
+//initial store structure
+store.dispatch(setState({
+    events:[],
+    messages:[],
+    form:{
+        name:'',
+        firstName:'',
+        lastName:'',
+        email:'',
+        date:''
     }
-});
+}));
+
 
 ReactDOM.render(
     <Provider store={store}>

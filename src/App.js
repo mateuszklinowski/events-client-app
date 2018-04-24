@@ -23,8 +23,8 @@ class App extends Component {
                         </div>
                     </div>
                 </main>
-                <footer>
-
+                <footer className="App-footer">
+                    <h3>Mateusz Klinowski</h3>
                 </footer>
             </div>
         );

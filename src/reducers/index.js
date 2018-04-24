@@ -9,9 +9,33 @@ const addEvent = (state,event) => {
     return state.set('events',events);
 }
 
-const submitForm = (state) =>{
+const validator = (event) => {
+    let result = {valid:true,errors:[]};
 
-    console.log(state.get('form').get('name'));
+    if(!event){
+        result.valid = false;
+        result.errors.push("Application error")
+    }
+    if(!event.name || !event.firstName || !event.lastName || !event.email || !event.date){
+        result.valid = false;
+        result.errors.push("Missing fields")
+    }
+    if(Date.now() > event.date){
+        result.valid = false;
+        result.errors.push("Incorrect date")
+    }
+    for(let key in event){
+        if(event.hasOwnProperty(key)){
+            if(key.length > 30 ){
+                result.valid = false;
+                result.errors.push("Too long data (max 30)");
+            }
+        }
+    }
+    return result;
+}
+
+const submitForm = (state) =>{
 
     let event = {
         name:state.getIn(['form','name']),
@@ -19,13 +43,18 @@ const submitForm = (state) =>{
         lastName:state.getIn(['form','lastName']),
         email:state.getIn(['form','email']),
         date:state.getIn(['form','date']),
+    };
+
+    let validation = validator(event);
+
+    if(!validation.valid){
+        return setMessages(state,validation.errors);
     }
 
     return addEvent(state,event)
 };
 
 const updateForm = (state,action) => {
-    console.log(action);
     return state.setIn(['form',action.name],action.value);
 }
 

@@ -8,6 +8,7 @@ export function setState(state) {
 export function addEvent(event) {
     return {
         type: 'ADD_EVENT',
+        meta:{remote:true},
         event
     };
 }
