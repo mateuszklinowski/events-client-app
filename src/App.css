@@ -8,15 +8,12 @@
   color: white;
   margin-bottom: 100px;
 }
-
 .App-title {
   font-size: 1.5em;
 }
-
 .App-intro {
   font-size: large;
 }
-
 .App-footer{
   background: #222;
   height: 100px;
@@ -29,7 +26,6 @@
   line-height: 100px;
   margin: 0;
 }
-
 .App-msg{
   text-align: left;
   font-weight: 600;
@@ -65,4 +61,16 @@ main{
 .Events-list::-webkit-scrollbar{
   width: 0;
   background: transparent;
+}
+
+
+.event-info{
+  display: block;
+  margin: 3px 0 6px;
+  font-size: 1.1rem;
+}
+.info-small{
+  display: inline-block;
+  font-size: 0.8rem;
+  margin: 3px 0 1px;
 }

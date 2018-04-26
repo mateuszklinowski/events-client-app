@@ -22,6 +22,8 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-immutable": "^2.0.0-alpha.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "jsdom": "^11.9.0"
   }
 }

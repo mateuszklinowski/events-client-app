@@ -1,20 +1,16 @@
 import React from 'react';
-import logo from '../images/logo.svg'
 
 const Event = ({event}) => {
 
-    let dateString = new Date(event.get('date')).toLocaleDateString();
+    let dateString = new Date(event.date).toLocaleDateString();
     return (
-        <li className="collection-item avatar">
-            <img className="circle" alt="react-logo" src={logo}/>
-            <span className="title">Event: {event.get('name')} - {dateString}</span>
-            <p>
-                By {event.get('firstName')} {event.get('lastName')}
-                <br/>
-                Contact {event.get('email')}
-            </p>
+        <li className="collection-item">
+            <span className="event-info event-name"><b>{event.name}</b></span>
+            <span className="event-info info-small event-date">{dateString}</span>
+            <span className="event-info event-email"><b>Email:</b> {event.email}</span>
+            <span className="event-info info-small event-by">By: {event.firstName} {event.lastName}</span>
         </li>
     )
-}
+};
 
 export default Event

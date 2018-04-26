@@ -12,14 +12,11 @@ export function addEvent(event) {
         event
     };
 }
-export function submitForm() {
+
+export function setMessages(messages) {
     return {
-        type: 'SUBMIT_FORM',
+        type: 'SET_MESSAGES',
+        messages
     };
 }
-export function updateForm(input){
-    return{
-        type: 'UPDATE_FORM',
-        input
-    }
-}
+

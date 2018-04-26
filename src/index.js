@@ -21,20 +21,6 @@ const store = createStoreWithMiddleware(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-//initial store structure
-store.dispatch(setState({
-    events:[],
-    messages:[],
-    form:{
-        name:'',
-        firstName:'',
-        lastName:'',
-        email:'',
-        date:''
-    }
-}));
-
-
 ReactDOM.render(
     <Provider store={store}>
         <App />

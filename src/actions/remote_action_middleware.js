@@ -1,8 +1,7 @@
 export default socket => store => next => action => {
 
-    console.log(action);
+    /*Only emit action with remote prop*/
     if(action.meta && action.meta.remote){
-        console.log('emitting');
         socket.emit('action',action);
     }
     return next(action)

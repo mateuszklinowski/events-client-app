@@ -15,10 +15,12 @@ class App extends Component {
                 </header>
                 <main className="container">
                     <div className="row">
-                        <div className="col s12  l6 ">
+                        <div className="col s12  l7 ">
+                            <h4>Add event</h4>
                             <AddEventContainer/>
                         </div>
-                        <div className="col s12 l6 ">
+                        <div className="col s12 l5 ">
+                            <h4>Incoming events</h4>
                             <EventsListContainer/>
                         </div>
                     </div>

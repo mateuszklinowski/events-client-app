@@ -6,18 +6,18 @@ import * as actionCreators from '../actions';
 export const EventsList = ({events}) => {
     return (
             <ul className="collection Events-list">
-                {events.map((event,index) =>
-                    <Event key={index} event={event}/>
+                {events.map(event =>
+                    <Event key={event.id} event={event}/>
                 )}
             </ul>
     )
-}
+};
 
 const mapStateToProps = state => {
     return {
-        events : state.get('events')
+        events : state.get('events').toJS()
     }
-}
+};
 
 export const EventsListContainer = connect(
     mapStateToProps,
