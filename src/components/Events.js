@@ -6,7 +6,7 @@ import * as actionCreators from '../actions';
 export const EventsList = ({events}) => {
     return (
             <ul className="collection Events-list">
-                {events.map(event =>
+                {events.sort((a,b)=>a.date-b.date).map(event =>
                     <Event key={event.id} event={event}/>
                 )}
             </ul>

@@ -49,17 +49,17 @@ export const AddEvent = ({  setMessages, addEvent, messages }) => {
           <form onSubmit={formSubmit}>
               <div className="row">
                   <div className="input-field col s6">
-                      <input type="text" className="validate" name="firstName" ref={node => nameInput = node} required/>
+                      <input type="text" className="validate" name="firstName" ref={node => firstNameInput = node} required/>
                           <label htmlFor="first_name">First Name</label>
                   </div>
                   <div className="input-field col s6">
-                      <input  type="text" className="validate" name="lastName"  required ref={node => firstNameInput = node}/>
+                      <input  type="text" className="validate" name="lastName"  required ref={node => lastNameInput = node}/>
                           <label htmlFor="last_name">Last Name</label>
                   </div>
               </div>
               <div className="row">
                   <div className="input-field col s6">
-                      <input  type="text" className="validate" name="name"  required ref={node => lastNameInput = node}/>
+                      <input  type="text" className="validate" name="name"  required ref={node => nameInput = node}/>
                           <label htmlFor="name">Event name</label>
                   </div>
                   <div className="input-field col s6">

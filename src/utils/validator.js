@@ -1,3 +1,5 @@
+
+
 export const validateEvent = (event) =>{
 
     let result = {valid:true,errors:[]};
@@ -10,7 +12,10 @@ export const validateEvent = (event) =>{
         result.valid = false;
         result.errors.push("Missing fields")
     }
-    if(Date.now() > event.date){
+
+    let today = new Date(Date.now());
+    today.setHours(0,0,0,0);
+    if(today.getTime() > event.date){
         result.valid = false;
         result.errors.push("Incorrect date")
     }
