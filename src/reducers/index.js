@@ -9,9 +9,12 @@ const addEvent = (state,event) => {
     return state.set('events',events);
 };
 
+const setSocketId = (state,socketId) => state.set('socketId',socketId);
+
 const initialState = fromJS({
     events:[],
     messages:[],
+    socketId:""
 });
 
 export default (state = initialState, action) => {
@@ -24,8 +27,13 @@ export default (state = initialState, action) => {
 
         case 'ADD_EVENT':
             /*ADD_EVENT take place on server*/
+            /*Check src/actions/remote_action_middleware.js*/
             //return addEvent(state, action.event);
             return setMessages(state,["Your event have been added"]);
+
+        case 'SET_SOCKET_ID':
+            return setSocketId(state,action.socketId);
+
         default :
             return state
     }

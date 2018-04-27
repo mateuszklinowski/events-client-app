@@ -4,9 +4,12 @@ import {connect} from 'react-redux'
 import * as actionCreators from '../actions';
 
 export const EventsList = ({events}) => {
+    let today = new Date(Date.now());
+    today.setHours(0,0,0,0);
+
     return (
             <ul className="collection Events-list">
-                {events.sort((a,b)=>a.date-b.date).map(event =>
+                {events.filter((event)=>event.date>today.getTime()).sort((a,b)=>a.date-b.date).map(event =>
                     <Event key={event._id} event={event}/>
                 )}
             </ul>

@@ -20,3 +20,10 @@ export function setMessages(messages) {
     };
 }
 
+export function setSocketId(id) {
+    return {
+        type: 'SET_SOCKET_ID',
+        socketId:id
+    };
+}
+
