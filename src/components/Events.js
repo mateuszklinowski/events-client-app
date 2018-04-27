@@ -7,7 +7,7 @@ export const EventsList = ({events}) => {
     return (
             <ul className="collection Events-list">
                 {events.sort((a,b)=>a.date-b.date).map(event =>
-                    <Event key={event.id} event={event}/>
+                    <Event key={event._id} event={event}/>
                 )}
             </ul>
     )

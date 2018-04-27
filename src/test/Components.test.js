@@ -73,7 +73,6 @@ describe('components', () => {
 
         it('Render self with prop',()=>{
             expect(enzymeWrapper.find('button').hasClass('waves-effect')).toBe(true);
-
             expect(enzymeWrapper.find('Message').exists()).toBe(true);
         });
     })
