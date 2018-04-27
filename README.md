@@ -48,6 +48,7 @@ npm test
 
 * [React](https://reactjs.org/) - The web framework used
 * [Redux](https://redux.js.org/) - Application store
+* [Socket.io](https://socket.io/) - Server communication
 
 
 ## Authors
