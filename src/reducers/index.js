@@ -29,7 +29,7 @@ export default (state = initialState, action) => {
             /*ADD_EVENT take place on server*/
             /*Check src/actions/remote_action_middleware.js*/
             //return addEvent(state, action.event);
-            return setMessages(state,["Your event have been added"]);
+            return setMessages(state,["Your event has been sent!"]);
 
         case 'SET_SOCKET_ID':
             return setSocketId(state,action.socketId);

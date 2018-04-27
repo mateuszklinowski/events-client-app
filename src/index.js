@@ -8,11 +8,10 @@ import reducer from './reducers'
 import {Provider} from 'react-redux'
 import {setState, setSocketId} from './actions';
 import remoteActionMiddleware from './actions/remote_action_middleware'
+import socketConfig from './socket.io.config'
 
-
-const socket = io(`${window.location.protocol}//${window.location.hostname}:8090`);
+const socket = io(socketConfig.connectionUrl);
 socket.on('state',state=>{
-    console.log(state);
     store.dispatch(setState(state))
 });
 socket.on('connect',()=>{

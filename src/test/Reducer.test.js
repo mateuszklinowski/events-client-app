@@ -82,11 +82,12 @@ describe('reducer',() => {
 
         expect(nextState).to.equal(fromJS({
             events:[event1,event2],
-            messages:[msg1,msg2]
+            messages:[msg1,msg2],
+            socketId:""
         }));
     });
 
-    it('handles ADD_EVENT', () => {
+    it('handles ADD_EVENT transfer to SET_MESSAGE', () => {
 
         const initialState = Map({
             events:List.of(Map(event1)),
@@ -100,10 +101,10 @@ describe('reducer',() => {
         const nextState = reducer(initialState,action);
 
         expect(nextState).to.equal(fromJS({
-            events : [event1,event2]
+            events : [event1],
+            messages: ["Your event has been sent!"]
         }));
-
-    })
+    });
 
     it('handles SET_MESSAGES', ()=>{
 
