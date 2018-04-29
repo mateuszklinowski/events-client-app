@@ -12,8 +12,6 @@ import socketConfig from './socket.io.config'
 
 const socket = io(`${window.location.protocol}//${window.location.hostname}:`+socketConfig.port);
 
-console.log(`${window.location.protocol}//${window.location.hostname}:`+socketConfig.port);
-
 socket.on('state',state=>{
     store.dispatch(setState(state))
 });
