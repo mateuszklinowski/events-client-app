@@ -2,6 +2,7 @@
   "name": "events-client-app",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://events.mateuszklinowski.com",
   "dependencies": {
     "immutable": "^3.8.2",
     "materialize-css": "^1.0.0-beta",

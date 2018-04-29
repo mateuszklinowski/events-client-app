@@ -10,13 +10,16 @@ import {setState, setSocketId} from './actions';
 import remoteActionMiddleware from './actions/remote_action_middleware'
 import socketConfig from './socket.io.config'
 
-const socket = io(socketConfig.connectionUrl);
+const socket = io(`${window.location.protocol}//${window.location.hostname}:`+socketConfig.port);
+
+console.log(`${window.location.protocol}//${window.location.hostname}:`+socketConfig.port);
+
 socket.on('state',state=>{
     store.dispatch(setState(state))
 });
+
 socket.on('connect',()=>{
     store.dispatch(setSocketId(socket.io.engine.id));
-
 });
 
 

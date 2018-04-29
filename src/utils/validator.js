@@ -13,6 +13,11 @@ export const validateEvent = (event) =>{
         result.errors.push("Missing fields")
     }
 
+    if(isNaN(event.date)){
+        result.valid = false;
+        result.errors.push("Wrong date!");
+    }
+
     let today = new Date(Date.now());
     today.setHours(0,0,0,0);
     if(today.getTime() > event.date){
